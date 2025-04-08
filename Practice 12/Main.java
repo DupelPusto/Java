@@ -45,8 +45,10 @@ public class Main {
         try(BufferedReader br = new BufferedReader(new FileReader(filename + ".txt"))){
 
             String textline;
+            int row = 1;
             while ((textline = br.readLine()) != null){
-                System.out.println(textline);
+                System.out.println(row + " " + textline);
+                row++;
             }
 
 
@@ -98,8 +100,9 @@ public class Main {
                     break;
                 }
                 String towrite = text.trim();
-                bw.write(towrite);
                 bw.newLine();
+                bw.write(towrite);
+
                 linenumber++;
 
             }
@@ -146,11 +149,8 @@ public class Main {
                     bufer[row] = newvalue;
                 }
             }
-            System.out.println(lines);
+
             bufer[lines] = oldrow;
-
-            System.out.println(Arrays.toString(bufer));
-
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
 
             for (int j = 0; j <= lines; j++) {
